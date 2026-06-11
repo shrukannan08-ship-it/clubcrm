@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClubCRM AI Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div>
+            <h1>ClubCRM AI</h1>
+            <p>AI-Powered Club Operating System</p>
+        </div>
+
+        <div>
+            <button onclick="logout()">
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+    <!-- DASHBOARD STATS -->
+
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <h3>Total Clubs</h3>
+            <p id="clubCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Meetings</h3>
+            <p id="meetingCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Tasks</h3>
+            <p id="taskCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Club Health</h3>
+            <p id="healthScore">85%</p>
+        </div>
+
+    </section>
+
+    <!-- CREATE CLUB -->
+
+    <section class="section">
+
+        <h2>Create New Club</h2>
+
+        <input
+            type="text"
+            id="clubName"
+            placeholder="Club Name"
+        >
+
+        <textarea
+            id="clubDescription"
+            placeholder="Club Description"
+        ></textarea>
+
+        <button onclick="createClub()">
+            Create Club
+        </button>
+
+    </section>
+
+    <!-- CLUBS LIST -->
+
+    <section class="section">
+
+        <h2>Your Clubs</h2>
+
+        <div id="clubContainer" class="club-grid">
+
+        </div>
+
+    </section>
+
+    <!-- SELECTED CLUB -->
+
+    <section
+        id="clubDetails"
+        class="section hidden"
+    >
+
+        <h2 id="selectedClubName">
+            Club Details
+        </h2>
+
+        <p>
+            Chairman:
+            <span id="chairmanName">
+                -
+            </span>
+        </p>
+
+        <hr>
+
+        <!-- DOMAINS -->
+
+        <h3>Create Domain</h3>
+
+        <input
+            type="text"
+            id="domainName"
+            placeholder="Domain Name"
+        >
+
+        <button onclick="addDomain()">
+            Add Domain
+        </button>
+
+        <div id="domainList"></div>
+
+        <hr>
+
+        <!-- MEMBERS -->
+
+        <h3>Add Member</h3>
+
+        <input
+            type="text"
+            id="memberName"
+            placeholder="Member Name"
+        >
+
+        <select id="memberRole">
+
+            <option value="Member">
+                Member
+            </option>
+
+            <option value="Club Lead">
+                Club Lead
+            </option>
+
+            <option value="Domain Lead">
+                Domain Lead
+            </option>
+
+        </select>
+
+        <button onclick="addMember()">
+            Add Member
+        </button>
+
+        <div id="memberList"></div>
+
+        <hr>
+
+        <!-- MEETINGS -->
+
+        <h3>Schedule Meeting</h3>
+
+        <input
+            type="text"
+            id="meetingTitle"
+            placeholder="Meeting Title"
+        >
+
+        <input
+            type="date"
+            id="meetingDate"
+        >
+
+        <textarea
+            id="meetingAgenda"
+            placeholder="Meeting Agenda"
+        ></textarea>
+
+        <button onclick="addMeeting()">
+            Schedule Meeting
+        </button>
+
+        <div id="meetingList"></div>
+
+        <hr>
+
+        <!-- TASKS -->
+
+        <h3>Create Task</h3>
+
+        <input
+            type="text"
+            id="taskTitle"
+            placeholder="Task Name"
+        >
+
+        <input
+            type="text"
+            id="assignedTo"
+            placeholder="Assigned To"
+        >
+
+        <select id="taskStatus">
+
+            <option value="Pending">
+                Pending
+            </option>
+
+            <option value="In Progress">
+                In Progress
+            </option>
+
+            <option value="Completed">
+                Completed
+            </option>
+
+        </select>
+
+        <button onclick="addTask()">
+            Create Task
+        </button>
+
+        <div id="taskList"></div>
+
+        <hr>
+
+        <!-- MEETING NOTES -->
+
+        <h3>Meeting Notes</h3>
+
+        <textarea
+            id="meetingNotes"
+            placeholder="Discussion, Decisions, Action Items"
+        ></textarea>
+
+        <button onclick="saveNotes()">
+            Save Notes
+        </button>
+
+        <div id="notesList"></div>
+
+        <hr>
+
+        <!-- AI INSIGHTS -->
+
+        <div class="ai-box">
+
+            <h3>AI Insights</h3>
+
+            <div id="aiInsights">
+
+                <p>
+                    No insights generated yet.
+                </p>
+
+            </div>
+
+            <button onclick="generateInsights()">
+                Generate Insights
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
